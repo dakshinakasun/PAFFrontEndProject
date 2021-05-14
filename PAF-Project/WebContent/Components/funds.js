@@ -133,10 +133,6 @@ $(document).on("click", ".btnUpdate", function(event)
 function validateFundForm()
 {
 	// CODE
-	//if ($("#FundCode").val().trim() == "")
-	//{
-	//	return "Insert Fund Code.";
-	//}
 	var fcode = $("#FundCode").val();
 	
 	//Cheack fund code empty or not
