@@ -133,41 +133,87 @@ $(document).on("click", ".btnUpdate", function(event)
 function validateFundForm()
 {
 	// CODE
-	if ($("#FundCode").val().trim() == "")
+	//if ($("#FundCode").val().trim() == "")
+	//{
+	//	return "Insert Fund Code.";
+	//}
+	var fcode = $("#FundCode").val();
+	
+	//Cheack fund name empty or not
+	if(fcode.length==0 && fcode.trim() == '')
 	{
-		return "Insert Fund Code.";
+		return 'Insert Fund Code.';
 	}
 	
-	// NAME
-	if ($("#FundName").val().trim() == "")
+	//check mobile number only has numbers and 10 digits.
+	else if(fcode.length > 1 && !(/^([A-Z0-9]{4})+$/.test(fcode)))
 	{
-		return "Insert Fund Name.";
+		return 'Invalide Fund Code';
+	}
+	
+	
+	
+	// NAME
+	var name = $("#FundName").val();
+	
+	//Cheack fund name empty or not
+	if(name == "" || name.trim().length == 0)
+	{
+		return 'Insert Fund Name.';
+	}
+	
+	//check fund name only has letters and numbers
+	else if(!(/^[A-Za-z 0-9-]+$/.test(name)))
+	{
+		return 'Invalide Fund Name';
 	}
 	
 	// SPONSER
-	if ($("#FundSponser").val().trim() == "")
+	var sponser = $("#FundSponser").val(); 
+	
+	//Cheack sponser name empty or not
+	if(sponser == "" || sponser.trim().length == 0)
 	{
-		return "Insert Fund Sponser.";
+		return 'Insert Sponser Name.';
 	}
 	
-	// EMAIL
-	if ($("#Email").val().trim() == "")
+	//check sponse name only has letters.
+	else if(!(/^[A-Za-z ]+$/.test(sponser)))
 	{
-		return "Insert Email.";
+		return 'Invalide Sponser Name';
 	}
+
+	var email = $("#Email").val(); 
+	
+	//Cheack email empty or not
+	if(email == "" || email.trim().length == 0)
+	{
+		return 'Insert Email.';
+	}
+	
+	//check email.
+	else if(!(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)))
+	{
+		return 'Invalide Email';
+	}
+	
+	
 	
 	// MOBILE
-	if ($("#Mobile").val().trim() == "")
+	var mobile = $("#Mobile").val();
+	
+	//Cheack mobile number empty or not
+	if(mobile.length==0 && mobile.trim() == '')
 	{
-		return "Insert Mobile Number.";
+		return 'Insert Mobile Number.';
+	}
+	//check mobile number only has numbers and 10 digits.
+	else if(mobile.length > 1 && !(/^([0-9]{10})+$/.test(mobile)))
+	{
+		return 'Insert Valide Mobile Number';
 	}
 	
-	// is numerical value
-	var tmpMobile = $("#Mobile").val().trim();
-	if (!$.isNumeric(tmpMobile))
-	{
-		return "Insert a numbers for Mobile.";
-	}
+
 	
 	// PRICE-------------------------------
 	if ($("#FundPrice").val().trim() == "")
