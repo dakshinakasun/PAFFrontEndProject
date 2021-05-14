@@ -139,13 +139,13 @@ function validateFundForm()
 	//}
 	var fcode = $("#FundCode").val();
 	
-	//Cheack fund name empty or not
+	//Cheack fund code empty or not
 	if(fcode.length==0 && fcode.trim() == '')
 	{
 		return 'Insert Fund Code.';
 	}
 	
-	//check mobile number only has numbers and 10 digits.
+	//check fund code only has letters, numbers and 4 digits.
 	else if(fcode.length > 1 && !(/^([A-Z0-9]{4})+$/.test(fcode)))
 	{
 		return 'Invalide Fund Code';
